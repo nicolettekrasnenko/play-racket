@@ -16,7 +16,7 @@
 ;; - "old"
 ;; - "heritage"
 ;; interp. status of buildings age
-;; examples are redundant for enumirations
+;; examples are redundant for enumerations
 
 (@dd-template-rules one-of            ;3 cases
                     atomic-distinct   ; "new"
