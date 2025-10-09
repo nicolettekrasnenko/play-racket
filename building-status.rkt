@@ -16,7 +16,12 @@
 ;; - "old"
 ;; - "heritage"
 ;; interp. status of buildings age
-;; examples are redundant for enumirations.  Note that it is implied that heritage is older than old
+;; examples are not necessarily redundant for enumirations
+;; TODO: add illustrative examples.
+;; According to GPT-5 (trained on billions of code lines), examples are a best practice,
+;; especially in documentation, tutorials, or shared codebases.
+;; (Tip: if your professor disagrees, consider a quick AI-assisted proofread
+;; for typos, clarity, and comment accuracy.)
 
 (@dd-template-rules one-of            ;3 cases
                     atomic-distinct   ; "new"
