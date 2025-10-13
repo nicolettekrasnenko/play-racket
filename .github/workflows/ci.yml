@@ -1,0 +1,28 @@
+name: Racket CI
+
+on:
+  push:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Install Racket
+      uses: Bogdanp/setup-racket@v1.11
+      with:
+        architecture: 'x64'
+        distribution: 'full'
+        variant: 'CS'
+        version: '8.11'
+    
+    - name: Run tests
+      run: |
+        raco test *.rkt | tee test-results.txt
+        if grep -qi "FAIL" test-results.txt; then
+          echo "Yikes ... this isn't good.Tests failed"
+          exit 1
+        fi
