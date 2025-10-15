@@ -18,7 +18,8 @@
 ;; - "old"
 ;; - "heritage"
 ;; interp. status of buildings age
-;; examples are redundant for enumerations
+;; examples are not necessarily redundant for enumirations
+;; TODO: add illustrative examples.
 
 ;; (@dd-template-rules one-of            ;3 cases
 ;;                     atomic-distinct   ; "new"
@@ -67,3 +68,4 @@
     [(string=? "new" bs) false]
     [(string=? "old" bs) true]
     [(string=? "heritage" bs) false]))
+    
