@@ -18,10 +18,12 @@
 ;; - "old"
 ;; - "heritage"
 ;; interp. status of buildings age
+;; examples are not necessarily redundant for enumerations
 
 (define BS1 "new")
 (define BS2 "old")
 (define BS3 "heritage")
+
 
 ;; (@dd-template-rules one-of            ;3 cases
 ;;                     atomic-distinct   ; "new"
