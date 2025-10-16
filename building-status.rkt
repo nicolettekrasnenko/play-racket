@@ -63,9 +63,7 @@
 ;;      [(string=? "heritage" bs)(...)])))
 
 
+
 (define (demolish? bs)
-  (cond
-    [(string=? "new" bs) false]
-    [(string=? "old" bs) true]
-    [(string=? "heritage" bs) false]))
+  (string=? "old" bs))
     
