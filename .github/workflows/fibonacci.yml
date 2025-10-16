@@ -1,0 +1,38 @@
+name: Fibonacci
+
+on:
+  workflow_dispatch:
+    inputs:
+      N:
+        description: "Index N (non-negative integer)"
+        required: true
+        default: "47"
+
+jobs:
+  run-fibonacci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Racket
+        uses: Bogdanp/setup-racket@v1.11
+        with:
+          architecture: 'x64'
+          distribution: 'full'
+          variant: 'CS'
+          version: '8.11'
+
+      - name: Run fib-cli.rkt
+        env:
+          N: ${{ github.event.inputs.N }}
+        run: |
+          set -euo pipefail
+          echo "N=$N"
+          racket fib-cli.rkt | tee output.txt
+
+      - name: Save output as job summary
+        run: |
+          echo "## Fibonacci Result" >> $GITHUB_STEP_SUMMARY
+          echo "N=${{ github.event.inputs.N }}" >> $GITHUB_STEP_SUMMARY
+          echo "Output: $(cat output.txt)" >> $GITHUB_STEP_SUMMARY
